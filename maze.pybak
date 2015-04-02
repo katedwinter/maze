@@ -6,6 +6,7 @@ class Maze(object):
     self.image = makePicture('maze.jpg')
     self.w = makeWorld(getWidth(self.image),getHeight(self.image))
     self.w.setPicture(self.image)
+    self.t = makeTurtle(self.w)
 
 # Tests follow here
 doTests = 1
@@ -34,7 +35,15 @@ if doTests:
       printNow("Test 4 failed, world picture is " + m.w.getPicture().fileName)
   except:
     printNow("Test 4 failed, unable to get file name.")
-    
+  
+  #Test no.5
+  try:
+    if m.t.__class__ == Turtle:
+      printNow("Test 5 passed, Turtle exists.")
+    else:
+      printNow("Test 5 failed, Turtle does not exist.")
+  except:
+    printNow("Test 5 failed, class isn't a Turtle." + str(m.t.__class__)) 
     
     
     
